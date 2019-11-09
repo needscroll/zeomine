@@ -1,0 +1,22 @@
+# Ignore reports and custom plugins folder
+user_data/configs/*
+user_data/crawlers/*
+user_data/data/*
+user_data/extras/*
+user_data/logs/*
+user_data/plugins/*
+
+# Do incluse the __init__ files
+!user_data/*/__init__.py
+!user_data/__init__.py
+
+# Ignore geckodriver if it is present
+geckodriver*
+
+# Ignore pycache folders
+__pycache__/*
+**/__pycache__/
+**/__pycache__/*
+
+# Ignore log files from a browser driver
+*.log

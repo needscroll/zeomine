@@ -1,0 +1,20 @@
+## Settings
+#
+# At minimum, you should have the DB location set
+
+settings:
+  db_path: sample.db
+  verbosity: 2
+  log_verbosity: 0
+
+conf:
+  crawler:
+    type: sample
+    module: sample_crawler
+    class: SampleCrawler
+  plugins:
+    SamplePlugin:
+      type: sample
+      module: sample_plugin
+      class: SamplePlugin
+      settings: {}

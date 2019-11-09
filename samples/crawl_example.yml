@@ -1,0 +1,54 @@
+settings:
+  verbosity: 1
+  log_verbosity: 0
+  db_path: weeklystandard-test.db
+  user_agent: "Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:64.0) Gecko/20100101 Firefox/64.0"
+
+conf:
+  crawler:
+    type: core
+    module: core_crawler
+    class: CoreCrawler
+    settings:
+      domain: example.com
+      error_max: 5
+      https: True
+      crawler:
+        req_method: selenium
+        req_delay:
+          method: static
+          time: 0
+      load_uncrawled: False
+      save_uncrawled: False
+      links:
+        exclude_str:
+          - "#"
+          - "%"
+          - "mailto:"
+        exclude_type:
+          - external
+          - file
+        max_links:
+          internal: 0
+          external: 0
+          file: 0
+          total: 5
+      selenium_plugins:
+        - SeleniumScreencap
+  plugins:
+    SeleniumScreencap:
+      type: core
+      module: content_extraction.selenium_screencap
+      class: SeleniumScreencap
+      settings:
+        image_path: "/"
+        selectors:
+          fullpage: "body"
+    TextExtraction:
+      type: core
+      module: content_extraction.text_extraction
+      class: TextExtraction
+      settings:
+        selectors:
+          - h1
+          - h2
